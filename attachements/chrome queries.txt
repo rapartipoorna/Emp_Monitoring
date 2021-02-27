@@ -1,0 +1,17 @@
+select_statement="SELECT DISTINCT REPLACE(urls.title, ' - Google Search', '') from urls where urls.url like '%www.google.com/search%'  and datetime(last_visit_time / 1000000 + (strftime('%s', '1601-01-01')), 'unixepoch') LIKE '2021-02-22%' limit 50;" 
+    select_statement="SELECT urls.url, urls.visit_count FROM urls, visits WHERE urls.id = visits.url and datetime(last_visit_time / 1000000 + (strftime('%s', '1601-01-01')), 'unixepoch') LIKE '2021-02-22%' limit 505;"
+    select_statement="SELECT url , visit_duration from visits and datetime(last_visit_time / 1000000 + (strftime('%s', '1601-01-01')), 'unixepoch') LIKE '2021-02-23%';"
+	select_statement="select datetime(last_visit_time/1000000-11644473600,'unixepoch') from urls limit 2"
+	select_statement='''SELECT 
+	datetime(last_visit_time/1000000-11644473600, "unixepoch")  as last_visited, 
+	url, 
+	title, 
+	visit_count 
+	FROM urls limit 50;'''
+
+
+
+select_statement = "SELECT urls.url, urls.visit_count FROM urls, visits WHERE urls.id = visits.url and datetime(last_visit_time / 1000000 + (strftime('%s', '1601-01-01')), 'unixepoch') LIKE '2021-02-23%' limit 1500;"
+
+cursor.execute('''SELECT datetime(visits.visit_time/1000000-11644473600, 'unixepoch', 'localtime') as 'visit_time',urls.url from urls,visits WHERE urls.id = visits.url and ((last_visit_time/1000000)-11644473600) - 
+    strftime('%s', '2021-02-23 00:00:00') > 0''')

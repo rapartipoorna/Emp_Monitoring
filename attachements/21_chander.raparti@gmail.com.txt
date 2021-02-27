@@ -1,0 +1,27 @@
+Subject
+
+hello....
+
+
+Plain_Text
+
+hi how are you
+
+
+
+Plain_HTML
+
+hi how are you
+
+
+
+
+HTML
+
+<div dir="ltr">hi how are you</div>
+
+
+
+attachments
+
+attachements\logo.icns
